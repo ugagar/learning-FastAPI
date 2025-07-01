@@ -1,0 +1,13 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Кеши и логи
+__pycache__/
+*.pyc
+*.log
+
+# Конфиги и секреты
+.env
+*.secret
