@@ -9,3 +9,7 @@ async def root():
 @app.get("/body")
 async def foo():
     return "Bye, World!"
+
+@app.get("/items/{item_id}")
+async def read_item(item_id):
+    return {"item_id": item_id}
