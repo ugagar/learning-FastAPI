@@ -37,3 +37,7 @@ async def get_model(model_name: ModelName):
             message = "LeCNN all the images"
 
     return {"model_name": model_name, "message": message}
+
+@app.get("/files/{file_path:path}")
+async def read_file(file_path: str):
+    return {"file_path": file_path}
