@@ -49,5 +49,9 @@ async def read_file(file_path: str):
     return {"file_path": file_path}
 
 @app.get("/books/{book_id}")
-async def read_book(book_id: str, q: str | None = None):
-    return {"book_id": book_id, "q": q} if q else {"book_id": book_id}
+async def read_book(book_id: str, q: str | None = None) -> dict[str, str]:
+    response = {"book_id": book_id}
+    if q:
+        response.update({"q": q})
+
+    return response
