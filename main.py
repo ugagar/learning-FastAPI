@@ -7,6 +7,8 @@ class ModelName(str, Enum):
     resnet = "resnet"
     lenet = "lenet"
 
+fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
+
 app = FastAPI()
 
 @app.get("/")
@@ -16,6 +18,10 @@ async def root():
 @app.get("/body")
 async def foo():
     return "Bye, World!"
+
+@app.get("/items/")
+async def read_item(skip: int = 0, limit: int = 10):
+    return fake_items_db[skip: skip + limit]
 
 @app.get("/items/0")
 async def read_zero_item():
